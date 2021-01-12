@@ -1,0 +1,9 @@
+/* Command line: sudo docker image ls  */
+REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
+booksstore                                   latest    a79df5f0b948   3 months ago   932MB
+registry.heroku.com/booksstore-react/web     latest    a79df5f0b948   3 months ago   932MB
+registry.heroku.com/lit-woodland-72031/web   latest    4a335b625267   3 months ago   932MB
+node                                         10.19.0   01b816051d34   9 months ago   911MB
+
+/* Command line: sudo docker container ls -a */
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
