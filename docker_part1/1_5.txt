@@ -1,0 +1,7 @@
+Step 1: On the first terminal:
+$ docker container run --rm -it --name website ubuntu:16.04 sh -c 'echo "Input website:"; read website; echo "Searching..."; sleep 1; curl http://$website;'
+Step 2: On the second terminal:
+$ docker container exec -it website bash
+$ apt-get update && apt-get install curl
+Step 3: Back to the first terminal, enter:
+helsinki.fi
