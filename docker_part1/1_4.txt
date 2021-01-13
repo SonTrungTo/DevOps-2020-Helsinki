@@ -1,2 +1,7 @@
 Secret message is:
 "Docker is easy"
+
+$ docker container run -d -it --name secret-message devopsdockeruh/exec_bash_exercise:latest
+$ docker container start secret-message
+$ docker container exec -it secret-message bash
+$ tail -f ./logs.txt
