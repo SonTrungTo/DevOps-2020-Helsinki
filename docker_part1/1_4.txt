@@ -1,0 +1,2 @@
+Secret message is:
+"Docker is easy"
