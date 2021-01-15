@@ -8,5 +8,6 @@ RUN apt-get update && apt-get install -y nodejs git
 RUN git clone https://github.com/docker-hy/frontend-example-docker .
 RUN npm install
 RUN npm install -g serve
+ENV API_URL=http://localhost:8000
 
 EXPOSE 5000

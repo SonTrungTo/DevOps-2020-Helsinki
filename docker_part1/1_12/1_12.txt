@@ -1,0 +1,2 @@
+Check both Dockerfiles in 1_10 and 1_11 for ENV addition to the frontend and backend, respectively.
+The commands running both containers are the same. Use each in a separate terminal window.
