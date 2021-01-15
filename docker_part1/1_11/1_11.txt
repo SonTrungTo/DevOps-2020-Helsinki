@@ -1,0 +1,4 @@
+In another terminal window: $ touch logs.txt
+In the original terminal window:
+$ docker build -t backend .
+$ docker container run -v "$(pwd)/logs.txt:/mydir/logs.txt" -p 8000:8000 backend npm start
