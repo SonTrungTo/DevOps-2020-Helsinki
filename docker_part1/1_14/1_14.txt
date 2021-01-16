@@ -1,0 +1,2 @@
+$ docker build -t ruby .
+$ docker container run --rm -p 3000:3000 ruby
