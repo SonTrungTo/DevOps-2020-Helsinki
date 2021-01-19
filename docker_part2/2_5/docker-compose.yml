@@ -1,1 +1,27 @@
 version: '3.5'
+
+services: 
+  front-end:
+    image: 011092295y/frontend_example
+    build: ../../docker_part1/1_10/.
+    ports: 
+      - 5000:5000
+    environment: 
+      - API_URL=http://localhost:8000
+
+  back-end:
+    image: 011092295y/backend_example
+    build: ../../docker_part1/1_11/.
+    ports: 
+      - 8000:8000
+    environment: 
+      - FRONT_URL=http://localhost:5000
+      - REDIS=redis
+    volumes: 
+      - ./logs.txt:/mydir/logs.txt
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    volumes: 
+      - /docker/host/dir:/data
