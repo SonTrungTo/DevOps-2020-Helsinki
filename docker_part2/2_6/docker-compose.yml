@@ -17,11 +17,25 @@ services:
     environment: 
       - FRONT_URL=http://localhost:5000
       - REDIS=redis
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=example
+      - DB_NAME=DB_EXAMPLE
+      - DB_HOST=db
     volumes: 
       - ./logs.txt:/mydir/logs.txt
+    depends_on: 
+      - db
 
   redis:
     image: redis
     restart: unless-stopped
     volumes: 
       - /docker/host/dir:/data
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment: 
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=DB_EXAMPLE
