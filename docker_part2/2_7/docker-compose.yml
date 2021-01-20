@@ -11,8 +11,10 @@ services:
   backend:
     image: 011092295y/ml-kurkkumopo-backend
     build: ./ml-kurkkumopo-backend/.
+    ports: 
+      - 5000:5000
     volumes: 
-      - /src/model:/src/model
+      - ./model:/src/model
     container_name: ml-backend
     depends_on: 
       - training
@@ -21,7 +23,7 @@ services:
     image: 011092295y/ml-kurkkumopo-training
     build: ./ml-kurkkumopo-training/.
     volumes: 
-      - /src/model:/src/model
-      - /src/imgs:/src/imgs
-      - /src/data:/src/data
+      - ./data:/src/data
+      - ./imgs:/src/imgs
+      - ./model:/src/model
     container_name: ml-training
