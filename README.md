@@ -7,3 +7,8 @@ This repository combines both the MOOC DevOps with Docker 2020 and DevOps with K
 ## [Part 1](https://github.com/SonTrungTo/DevOps-2020-Helsinki/tree/master/docker_part1)
 - Image vs Container and the role of Docker in FullStack.
 - Basic interactions with Docker, Docker Hub and Heroku.
+
+## [Part 2](https://github.com/SonTrungTo/DevOps-2020-Helsinki/tree/master/docker_part2)
+- docker-compose to execute multiple containers and deliver efficiency.
+- Config reverse-proxy and load-balancing.
+- Config dockers for machine learning projects.
