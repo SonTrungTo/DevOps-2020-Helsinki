@@ -1,0 +1,1 @@
+## This documents the file size pre-optimization and post-optimization.
