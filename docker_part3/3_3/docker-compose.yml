@@ -1,0 +1,12 @@
+version: '3.5'
+
+services: 
+  coursematerial:
+    image: 011092295y/docker-hy-course
+    build: .
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: watchtower
