@@ -10,7 +10,6 @@ RUN apk update \
     && npm install \
     && npm install -g serve \
     && apk del curl git \
-    && rm -rf /var/lib/apt/lists/* \
     && deluser --remove-home node \
     && addgroup -S node -g 9995 \
     && adduser -S -G node -u 9995 node \

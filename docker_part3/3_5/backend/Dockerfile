@@ -1,18 +1,20 @@
-FROM ubuntu:16.04
+FROM node:alpine
 
 WORKDIR /mydir
 
-RUN apt-get update \
-    && apt-get install -y curl \
-    && curl -sL https://deb.nodesource.com/setup_15.x | bash - \
-    && apt-get update && apt-get install -y nodejs git \
+RUN apk update \
+    && apk add --no-cache curl \
+    && curl -sL https://deb.nodesource.com/setup_15.x \
+    && apk add --no-cache git \
     && git clone https://github.com/docker-hy/backend-example-docker . \
     && npm install \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get purge -y --auto-remove curl git \
-    && useradd -m mydir
+    && apk del curl git \
+    && deluser --remove-home node \
+    && addgroup -S node -g 9995 \
+    && adduser -S -G node -u 9995 node \
+    && chown -R node .
 
-USER mydir
+USER node
 
 ENV FRONT_URL=http://localhost:5000
 
