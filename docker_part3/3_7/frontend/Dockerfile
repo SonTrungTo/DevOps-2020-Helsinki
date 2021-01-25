@@ -13,7 +13,10 @@ RUN apk update \
     && apk del curl git curl npm \
     && deluser --remove-home node \
     && addgroup -S app -g 9995 \
-    && adduser -S -G app -u 9995 app
+    && adduser -S -G app -u 9995 app \
+    && chown -R app .
+
+USER app
 
 ENV API_URL=http://localhost:8000
 

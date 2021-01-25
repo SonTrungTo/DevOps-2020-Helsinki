@@ -1,2 +1,49 @@
 version: '3.5'
 
+services: 
+  frontend:
+    image: 011092295y/frontend_example
+    build: ./frontend/.
+    environment: 
+      - NODE_ENV=production
+      - API_URL=/api
+
+  backend:
+    image: 011092295y/backend_example
+    build: ./backend/.
+    ports: 
+      - 8000:80
+    environment: 
+      - NODE_ENV=production
+      - REDIS=redis
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=example
+      - DB_NAME=EXAMPLE_DB
+      - DB_HOST=db
+    command: npm start
+    depends_on: 
+      - db
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    volumes: 
+      - /docker/host/dir:/data
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DB=EXAMPLE_DB
+
+  nginx:
+    image: nginx
+    ports: 
+      - 80:80
+    volumes: 
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on: 
+      - frontend
+      - backend
