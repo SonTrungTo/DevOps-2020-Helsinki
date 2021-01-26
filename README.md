@@ -3,7 +3,7 @@
 
 This repository combines both the 
  - DevOps with Docker 2020 :heavy_check_mark:
- - DevOps with Kubernetes 2020 
+ - DevOps with Kubernetes 2020 <br />
 by Jami Kousa.
 
 # [Docker](https://devopswithdocker.com/) (100% exericises solved!)
