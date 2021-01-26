@@ -1,0 +1,1 @@
+## This contains the diagram of Kubernetes for 3 hosts and 2 apps.
